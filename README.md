@@ -1,2 +1,3 @@
-# corinnewhittemore.com
-Future site for corinne whittemore
+corrinewhittemore.com
+========
+Corinne Whittemore's design and artwork.
