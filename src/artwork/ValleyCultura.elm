@@ -28,8 +28,8 @@ imagePathFromTitle : Dict.Dict String String
 imagePathFromTitle =
     let
         root =
-            -- "./images/artwork/ValleyCultura/"
-            "../index/images/artwork/ValleyCultura/"
+            -- "./images/artwork/valleyCultura/"
+            "../index/images/artwork/valleyCultura/"
 
         mkPair =
             -- make pair with title string and file string
@@ -38,7 +38,7 @@ imagePathFromTitle =
         Dict.fromList <|
             List.map
                 mkPair
-                [ "square", "wide", "threeTwo" ]
+                [ "square", "fourOne", "threeTwo", "oneTwo" ]
 
 
 divTileImgSquare : Html Msg
@@ -74,10 +74,22 @@ divTileImgNextToArtistStatement =
 divTileImgWider : Html Msg
 divTileImgWider =
     divTileImgGenerator
-        (Maybe.withDefault "" (Dict.get "wide" imagePathFromTitle))
-        "wide"
-        "is-847x300"
+        (Maybe.withDefault "" (Dict.get "fourOne" imagePathFromTitle))
+        "fourOne"
+        "is-1200x300"
         (ImageClick 1)
+
+
+divTileImgOneTwo : Html Msg
+divTileImgOneTwo =
+    div
+        [ class "tile is-child" ]
+        [ a [ onClick <| ImageClick 1 ]
+            [ figure
+                [ class <| "image is-unselectable is-1by2" ]
+                [ img [ src <| Maybe.withDefault "" (Dict.get "oneTwo" imagePathFromTitle), alt "oneTwo" ] [] ]
+            ]
+        ]
 
 
 divTileArtistStatement : Html msg
@@ -94,7 +106,10 @@ divTileMaterialsAndProcess : Html msg
 divTileMaterialsAndProcess =
     div [ class "tile is-parent" ]
         [ div [ class "tile is-child is-vertical" ]
-            [ p [ class "title font-garamond" ] [ text "Materials &\nProcess" ]
+            [ p [ class "title font-garamond" ]
+                [ p [] [ text "Materials &" ]
+                , p [] [ text "Process" ]
+                ]
             , article [ class "content", attributeTextAlign ]
                 [ p [] [ text valleyCulturaMaterialsProcess ] ]
             ]
@@ -114,7 +129,10 @@ divAncestor =
                 , div [ class "tile is-parent" ] [ divTileImgWider ]
                 , div [ class "tile is-parent" ] [ divTileImgWider ]
                 ]
-            , div [ class "tile " ] [ divTileMaterialsAndProcess ]
+            , div [ class "tile " ]
+                [ divTileMaterialsAndProcess
+                , divTileImgOneTwo
+                ]
             ]
         , div [ class "tile " ]
             [ div [ class "tile" ] [ div [ class "tile is-parent" ] [ divTileImgWider ] ]
