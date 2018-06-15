@@ -13,7 +13,8 @@ content =
 
 attributeAlignCenter : Attribute msg
 attributeAlignCenter =
-    style [ ( "align-content", "center" ) ]
+    -- style [ ( "align-content", "center" ) ]
+    style [ ( "", "" ) ]
 
 
 
@@ -22,7 +23,7 @@ attributeAlignCenter =
 
 divContent : Html msg
 divContent =
-    div [ class "content is-size-7" ]
+    div [ class "has-text-justified is-size-6" ]
         [ p [] [ text bioCopy ] ]
 
 
@@ -31,18 +32,10 @@ divContent =
 -- tile for biography copy:
 
 
-attributeTextAlignJustify : Attribute msg
-attributeTextAlignJustify =
-    style [ ( "text-align", "justify" ) ]
-
-
 divTileCopy : Html msg
 divTileCopy =
     div
-        [ class "tile is-parent is-6"
-        , attributeAlignCenter
-        , attributeTextAlignJustify
-        ]
+        [ class "tile is-parent is-6" ]
         [ article [ class "content" ]
             [ p [ class "title is-size-2 font-garamond" ]
                 [ text "Corinne Whittemore" ]
@@ -64,7 +57,7 @@ figureImageIndexImg =
 
 divTileImg : Html msg
 divTileImg =
-    div [ class "tile is-parent is-6" ]
+    div [ class "tile is-parent is-7" ]
         [ div [ class "tile is-child" ]
             [ figureImageIndexImg ]
         ]
@@ -84,5 +77,6 @@ sectionMainContent =
     section
         [ class "section"
         , attributeAlignCenter
+        , style [ ( "margin-left", "5%" ), ( "margin-right", "5%" ) ]
         ]
         [ divTiles ]
