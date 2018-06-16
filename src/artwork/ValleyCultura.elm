@@ -38,7 +38,7 @@ imagePathFromTitle =
         Dict.fromList <|
             List.map
                 mkPair
-                [ "square", "fourOne", "threeTwo", "oneTwo" ]
+                [ "square", "fourOne", "threeTwo", "oneTwo", "twoOne" ]
 
 
 divTileImgSquare : Html Msg
@@ -57,7 +57,7 @@ divTileImgSquare =
 
 divTileImgNextToArtistStatement : Html Msg
 divTileImgNextToArtistStatement =
-    div [ class "tile is-child", style [ ( "padding-top", "16%" ) ] ]
+    div [ class "tile is-child", style [ ( "padding-top", "15%" ) ] ]
         [ a [ onClick <| ImageClick 0 ]
             [ figure
                 [ class <| "image is-unselectable is-3by2" ]
@@ -83,13 +83,22 @@ divTileImgWider =
 divTileImgOneTwo : Html Msg
 divTileImgOneTwo =
     div
-        [ class "tile is-child" ]
+        [ class "tile is-6" ]
         [ a [ onClick <| ImageClick 1 ]
             [ figure
                 [ class <| "image is-unselectable is-1by2" ]
                 [ img [ src <| Maybe.withDefault "" (Dict.get "oneTwo" imagePathFromTitle), alt "oneTwo" ] [] ]
             ]
         ]
+
+
+divTileImgTwoOne : Html Msg
+divTileImgTwoOne =
+    divTileImgGenerator
+        (Maybe.withDefault "" (Dict.get "twoOne" imagePathFromTitle))
+        "twoOne"
+        "is-2by1"
+        (ImageClick 0)
 
 
 divTileArtistStatement : Html msg
@@ -104,9 +113,9 @@ divTileArtistStatement =
 
 divTileMaterialsAndProcess : Html msg
 divTileMaterialsAndProcess =
-    div [ class "tile is-parent" ]
-        [ div [ class "tile is-child is-vertical" ]
-            [ p [ class "title font-garamond" ]
+    div [ class "tile" ]
+        [ div [ class "tile is-parent is-vertical" ]
+            [ p [ class "title is-size-2 font-garamond" ]
                 [ p [] [ text "Materials &" ]
                 , p [] [ text "Process" ]
                 ]
@@ -118,8 +127,8 @@ divTileMaterialsAndProcess =
 
 divAncestor : Html Msg
 divAncestor =
-    div [ class "tile is-ancestor is-vertical", style [ ( "flex-wrap", "wrap" ) ] ]
-        [ div [ class "tile", style [ ( "flex-wrap", "wrap" ) ] ]
+    div [ class "tile is-ancestor is-vertical" ]
+        [ div [ class "tile" ]
             [ div [ class "tile is-parent" ] [ divTileArtistStatement ]
             , div [ class "tile is-parent" ] [ divTileImgNextToArtistStatement ]
             ]
@@ -128,30 +137,46 @@ divAncestor =
                 [ div [ class "tile is-parent" ] [ divTileImgWider ]
                 , div [ class "tile is-parent" ] [ divTileImgWider ]
                 , div [ class "tile is-parent" ] [ divTileImgWider ]
+                , div [ class "tile is-parent" ] [ divTileImgWider ]
                 ]
-            , div [ class "tile " ]
+            , div [ class "tile is-vertical" ]
                 [ divTileMaterialsAndProcess
-                , divTileImgOneTwo
+                , div [ class "tile" ]
+                    [ div [ class "tile is-parent" ]
+                        [ divTileImgTwoOne ]
+                    ]
                 ]
             ]
-        , div [ class "tile " ]
+        , div [ class "tile" ]
             [ div [ class "tile" ] [ div [ class "tile is-parent" ] [ divTileImgWider ] ]
-            , div [ class "tile" ]
-                [ div [ class "tile is-parent" ] [ divTileImgSquare ]
-                , div [ class "tile is-parent" ] [ divTileImgSquare ]
-                ]
+            , div [ class "tile" ] [ div [ class "tile is-parent" ] [ divTileImgWider ] ]
             ]
         ]
+
+
+divAncestorMobile : Html Msg
+divAncestorMobile =
+    div [ class "tile is-ancestor is-vertical" ]
+        [ divTileArtistStatement ]
 
 
 content : Html Msg
 content =
-    section
-        [ class "section"
-        , style
-            [ ( "zoom", "0.8" )
-            , ( "-moz-transform-origin", "top" )
-            , ( "-moz-transform", "scale(0.8)" )
+    div []
+        [ -- large screens:
+          section
+            [ class "section is-hidden-mobile"
+            , style
+                [ ( "zoom", "0.8" )
+                , ( "-moz-transform-origin", "top" )
+                , ( "-moz-transform", "scale(0.8)" )
+                ]
             ]
+            [ div [ class "container" ] [ divAncestor ] ]
+        , -- phone sizes:
+          section
+            [ class "section is-hidden-tablet"
+            , style [ ( "margin-left", "5%" ), ( "margin-right", "5%" ) ]
+            ]
+            [ div [ class "container" ] [ divAncestorMobile ] ]
         ]
-        [ div [ class "container" ] [ divAncestor ] ]
