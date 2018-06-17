@@ -11,12 +11,6 @@ content =
         [ sectionMainContent ]
 
 
-attributeAlignCenter : Attribute msg
-attributeAlignCenter =
-    -- style [ ( "align-content", "center" ) ]
-    style [ ( "", "" ) ]
-
-
 
 -- biography copy:
 
@@ -76,7 +70,6 @@ sectionMainContent : Html msg
 sectionMainContent =
     section
         [ class "section"
-        , attributeAlignCenter
         , style [ ( "margin-left", "7%" ), ( "margin-right", "7%" ) ]
         ]
         [ divTiles ]
