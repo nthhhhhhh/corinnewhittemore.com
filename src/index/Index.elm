@@ -30,7 +30,7 @@ view model =
             model.isBurgerActive
             Burger
             "./images/design/ecmw_black.png"
-        , Home.content
+        , model.content
         ]
 
 
