@@ -1,4 +1,4 @@
-module ValleyCultura exposing (main)
+module ValleyCultura exposing (content)
 
 import ArtworkCopy
     exposing
@@ -12,11 +12,6 @@ import Html.Attributes exposing (class, style, alt, src, id)
 import Html.Events exposing (onClick)
 import ImageUtil exposing (ImagePath, divTileImgGenerator)
 import Messages exposing (Msg(ImageClick))
-
-
-main : Html Msg
-main =
-    div [] [ content ]
 
 
 attributeTextAlign : Attribute msg
