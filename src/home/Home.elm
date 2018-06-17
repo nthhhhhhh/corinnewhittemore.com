@@ -23,7 +23,7 @@ attributeAlignCenter =
 
 divContent : Html msg
 divContent =
-    div [ class "has-text-justified is-size-6" ]
+    div [ class "has-text-justified is-size-7" ]
         [ p [] [ text bioCopy ] ]
 
 
@@ -57,7 +57,7 @@ figureImageIndexImg =
 
 divTileImg : Html msg
 divTileImg =
-    div [ class "tile is-parent is-7" ]
+    div [ class "tile is-parent is-6" ]
         [ div [ class "tile is-child" ]
             [ figureImageIndexImg ]
         ]
@@ -77,6 +77,6 @@ sectionMainContent =
     section
         [ class "section"
         , attributeAlignCenter
-        , style [ ( "margin-left", "5%" ), ( "margin-right", "5%" ) ]
+        , style [ ( "margin-left", "7%" ), ( "margin-right", "7%" ) ]
         ]
         [ divTiles ]
