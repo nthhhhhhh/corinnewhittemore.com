@@ -1,5 +1,8 @@
 module NavBar exposing (navBar)
 
+import ArtworkType exposing (ArtworkType(..))
+import CourseType exposing (CourseType(..))
+import PageType exposing (PageType(..))
 import Html exposing (Attribute, Html, text, span, div, img, nav, li, ul, a)
 import Html.Attributes
     exposing
@@ -14,6 +17,7 @@ import Html.Attributes
         )
 import Html.Events exposing (onClick)
 import ImageUtil exposing (ImagePath)
+import Messages exposing (Msg(..))
 
 
 styleFontSize : Attribute msg
@@ -26,29 +30,29 @@ stylePaddingRight =
     style [ ( "padding-right", "10px" ) ]
 
 
-imgLogo : String -> Html msg
+imgLogo : String -> Html Msg
 imgLogo path =
     img
         [ src path, alt "ecmw", height 28 ]
         []
 
 
-aNavbarItem : String -> Html msg
+aNavbarItem : String -> Html Msg
 aNavbarItem path =
     a
         [ class "navbar-item hvr-sink"
         , style [ ( "background-color", "white" ) ]
-        , href "../home/home.html"
+        , onClick <| ContentChange HomePage
         ]
         [ imgLogo path ]
 
 
-divNavbarBurger : Bool -> msg -> Html msg
-divNavbarBurger status msg =
+divNavbarBurger : Bool -> Html Msg
+divNavbarBurger status =
     div
         [ class <| isBurgerActiveCrossStr status
         , attribute "data-target" "navMenubd"
-        , onClick msg
+        , onClick Burger
         ]
         [ span [] []
         , span [] []
@@ -56,12 +60,12 @@ divNavbarBurger status msg =
         ]
 
 
-divNavbarBrand : Bool -> msg -> String -> Html msg
-divNavbarBrand status msg path =
-    div [ class "navbar-brand" ] [ aNavbarItem path, divNavbarBurger status msg ]
+divNavbarBrand : Bool -> String -> Html Msg
+divNavbarBrand status path =
+    div [ class "navbar-brand" ] [ aNavbarItem path, divNavbarBurger status ]
 
 
-navBreadcrumb : Html msg
+navBreadcrumb : Html Msg
 navBreadcrumb =
     nav
         [ class "breadcrumb"
@@ -71,44 +75,43 @@ navBreadcrumb =
         ]
         [ ul []
             [ li []
-                [ a [ href "../artwork/artwork.html" ]
+                [ a [ onClick <| ContentChange (Artwork ValleyCultura) ]
                     [ text "Artwork" ]
                 ]
             , li []
-                [ a [ href "../design/design.html" ]
+                [ a [ onClick <| ContentChange Design ]
                     [ text "Design" ]
                 ]
             , li []
-                [ a [ href "../studentWork/studentwork.html" ]
+                [ a [ onClick <| ContentChange (StudentWork TeachingPhilosophy) ]
                     [ text "Student Work" ]
                 ]
-            , li [] [ a [ href "#" ] [ text "Contact" ] ]
             ]
         ]
 
 
-divNavbarEnd : Html msg
+divNavbarEnd : Html Msg
 divNavbarEnd =
     div [ class "navbar-end" ]
         [ navBreadcrumb ]
 
 
-divNavbarMenu : Bool -> Html msg
+divNavbarMenu : Bool -> Html Msg
 divNavbarMenu status =
-    div [ id "navMenubd", class <| isBurgerActiveMenuStr status ] [ divNavbarEnd ]
+    div [ id "navMenubd", class <| isBurgerActiveMenuStr status ]
+        [ divNavbarEnd ]
 
 
-divnavBarMenuSmall : Bool -> Html msg
+divnavBarMenuSmall : Bool -> Html Msg
 divnavBarMenuSmall status =
     div [ id "navMenubd", class <| isBurgerActiveMenuStr status ] [ div [] [] ]
 
 
-navBar : Bool -> msg -> ImagePath -> Html msg
-navBar status msg path =
+navBar : Bool -> ImagePath -> Html Msg
+navBar status path =
     nav [ class "navbar" ]
         [ divNavbarBrand
             status
-            msg
             path
         , divNavbarMenu status
         ]
