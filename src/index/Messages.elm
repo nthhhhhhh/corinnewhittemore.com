@@ -1,6 +1,7 @@
 module Messages exposing (Msg(..))
 
 import Keyboard
+import PageType exposing (PageType(..))
 
 
 type Msg
@@ -10,3 +11,4 @@ type Msg
     | KeyMsg Keyboard.KeyCode
     | Burger
     | ImageClick Int
+    | ContentChange PageType
