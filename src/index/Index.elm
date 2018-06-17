@@ -1,5 +1,6 @@
 module Index exposing (..)
 
+import Hero exposing (section_)
 import Home exposing (content)
 import Html exposing (div, Html, text)
 import Html.Attributes exposing (class)
@@ -30,6 +31,7 @@ view model =
             model.isBurgerActive
             Burger
             "./images/design/ecmw_black.png"
+        , Hero.section_ <| model.heroTitle
         , model.content
         ]
 
