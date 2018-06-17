@@ -11,6 +11,7 @@ type alias Model =
     , isModalActive : Bool
     , content : Html Msg
     , pageType : PageType
+    , heroTitle : Maybe { title : String, subtitle : String }
     }
 
 
@@ -19,7 +20,8 @@ initialModel =
     { isBurgerActive = False
     , isModalActive = False
     , content = Home.content
-    , pageType = Index
+    , pageType = HomePage
+    , heroTitle = Nothing
     }
 
 
