@@ -2,6 +2,7 @@ module Update exposing (update)
 
 import Messages exposing (Msg(..))
 import Model exposing (Model)
+import PageContent exposing (html_)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -24,3 +25,10 @@ update msg model =
 
         ImageClick _ ->
             ( model, Cmd.none )
+
+        ContentChange pt ->
+            ( { model
+                | content = html_ pt
+              }
+            , Cmd.none
+            )
