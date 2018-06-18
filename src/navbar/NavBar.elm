@@ -2,7 +2,6 @@ module NavBar exposing (navBar)
 
 import ArtworkType exposing (ArtworkType(..))
 import CourseType exposing (CourseType(..))
-import PageType exposing (PageType(..))
 import Html exposing (Attribute, Html, text, span, div, img, nav, li, ul, a)
 import Html.Attributes
     exposing
@@ -18,6 +17,7 @@ import Html.Attributes
 import Html.Events exposing (onClick)
 import ImageUtil exposing (ImagePath)
 import Messages exposing (Msg(..))
+import PageType exposing (PageType(..))
 
 
 styleFontSize : Attribute msg
@@ -42,6 +42,7 @@ aNavbarItem path =
     a
         [ class "navbar-item hvr-sink"
         , style [ ( "background-color", "white" ) ]
+        , href "#/home"
         , onClick <| ContentChange HomePage
         ]
         [ imgLogo path ]
@@ -75,15 +76,24 @@ navBreadcrumb =
         ]
         [ ul []
             [ li []
-                [ a [ onClick <| ContentChange (Artwork ValleyCultura) ]
+                [ a
+                    [ onClick <| ContentChange (Artwork ValleyCultura)
+                    , href "#/artwork"
+                    ]
                     [ text "Artwork" ]
                 ]
             , li []
-                [ a [ onClick <| ContentChange Design ]
+                [ a
+                    [ onClick <| ContentChange Design
+                    , href "#/design"
+                    ]
                     [ text "Design" ]
                 ]
             , li []
-                [ a [ onClick <| ContentChange (StudentWork TeachingPhilosophy) ]
+                [ a
+                    [ onClick <| ContentChange (StudentWork TeachingPhilosophy)
+                    , href "#/studentwork"
+                    ]
                     [ text "Student Work" ]
                 ]
             ]
