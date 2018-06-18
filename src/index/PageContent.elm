@@ -1,16 +1,17 @@
-module PageContent exposing (html_)
+module PageContent exposing (html_, pageContent)
 
 import ArtworkType exposing (ArtworkType(..))
 import CourseType exposing (CourseType(..))
-import Html exposing (Html)
-import Messages exposing (Msg)
 import Home exposing (content)
-import ItalyJournals exposing (content)
+import Html exposing (Html, div)
 import ImportantPapers exposing (content)
+import ItalyJournals exposing (content)
+import Messages exposing (Msg)
+import Model exposing (Model)
+import Nav exposing (fromUrlHash, RoutePath(..))
 import PageType exposing (PageType(..))
 import PrivateDisturbance exposing (content)
 import ValleyCultura exposing (content)
-import Html exposing (div)
 
 
 html_ : PageType -> Html Msg
@@ -43,3 +44,29 @@ html_ pt =
 
                 TeachingPhilosophy ->
                     div [] []
+
+
+pageContent : Model -> Html Msg
+pageContent model =
+    let
+        routePath =
+            fromUrlHash model.currentRoute.hash
+    in
+        case routePath of
+            DefaultRoute ->
+                Home.content
+
+            ArtworkRoute ->
+                ValleyCultura.content
+
+            DesignRoute ->
+                div [] []
+
+            HomeRoute ->
+                Home.content
+
+            StudentWorkRoute ->
+                div [] []
+
+            NotFoundRoute ->
+                div [] []
