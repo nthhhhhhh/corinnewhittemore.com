@@ -7,8 +7,11 @@
 *.dat
 *.sassc
 *.jpg
+*.swp
 *.jpeg
 *.png
+*.txt
+*.pdf
 *.ico
 testing.html
 LintConfig.elm
