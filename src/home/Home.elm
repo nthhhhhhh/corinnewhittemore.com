@@ -70,6 +70,6 @@ sectionMainContent : Html msg
 sectionMainContent =
     section
         [ class "section"
-        , style [ ( "margin-left", "7%" ), ( "margin-right", "7%" ) ]
+        , style [ ( "margin-left", "5%" ), ( "margin-right", "5%" ) ]
         ]
         [ divTiles ]
