@@ -4,7 +4,8 @@ import Hero exposing (section_)
 import HeroTitles exposing (dict)
 import Messages exposing (Msg(..))
 import Model exposing (Model)
-import PageContent exposing (html_)
+import PageContent exposing (page)
+import Routing exposing (parseLocation)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -28,18 +29,12 @@ update msg model =
         ImageClick _ ->
             ( model, Cmd.none )
 
-        ContentChange pt ->
+        UrlChange location ->
             ( { model
-                | content = html_ pt
-                , heroTitle = HeroTitles.dict pt
-                , hero = Hero.section_ (HeroTitles.dict pt)
+                | route = parseLocation location
+                , content = page location
+                , heroTitle = HeroTitles.dict location
+                , hero = Hero.section_ (HeroTitles.dict location)
               }
             , Cmd.none
             )
-
-        UrlChange location ->
-            let
-                _ =
-                    Debug.log "hash:" location.hash
-            in
-                ( { model | currentRoute = location }, Cmd.none )

@@ -43,7 +43,6 @@ aNavbarItem path =
         [ class "navbar-item hvr-sink"
         , style [ ( "background-color", "white" ) ]
         , href "#/home"
-        , onClick <| ContentChange HomePage
         ]
         [ imgLogo path ]
 
@@ -77,22 +76,19 @@ navBreadcrumb =
         [ ul []
             [ li []
                 [ a
-                    [ onClick <| ContentChange (Artwork ValleyCultura)
-                    , href "#/artwork"
+                    [ href "#/artwork/valley_cultura"
                     ]
                     [ text "Artwork" ]
                 ]
             , li []
                 [ a
-                    [ onClick <| ContentChange Design
-                    , href "#/design"
+                    [ href "#/design"
                     ]
                     [ text "Design" ]
                 ]
             , li []
                 [ a
-                    [ onClick <| ContentChange (StudentWork TeachingPhilosophy)
-                    , href "#/studentwork"
+                    [ href "#/studentwork/teaching_philosophy"
                     ]
                     [ text "Student Work" ]
                 ]
