@@ -1,38 +1,47 @@
 module HeroTitles exposing (dict)
 
-import PageType exposing (PageType(..))
-import ArtworkType exposing (ArtworkType(..))
-import CourseType exposing (CourseType(..))
+import Navigation exposing (Location)
+import Routing exposing (Route(..), route)
+import UrlParser exposing (Parser, (</>), oneOf, parseHash, parsePath, s, top)
 
 
-dict : PageType -> Maybe { title : String, subtitle : String }
-dict pt =
-    case pt of
-        Artwork t ->
-            case t of
-                ImportantPapers ->
-                    Just { title = "Important Papers", subtitle = "Artwork" }
+heroTitle : String -> String -> Maybe { title : String, subtitle : String }
+heroTitle title_ subtitle_ =
+    Just { title = title_, subtitle = subtitle_ }
 
-                ItalyJournals ->
-                    Just { title = "Italy Journals", subtitle = "Artwork" }
 
-                PrivateDisturbance ->
-                    Just { title = "Private Disturbance", subtitle = "Artwork" }
-
-                ValleyCultura ->
-                    Just { title = "Valley Cultura", subtitle = "Artwork" }
-
-        HomePage ->
-            -- home page does not have a hero
-            Nothing
-
-        Design ->
-            Just { title = "Design", subtitle = "" }
-
-        StudentWork t ->
-            case t of
-                Typography ->
-                    Just { title = "Typography", subtitle = "Student Work" }
-
-                TeachingPhilosophy ->
+dict : Navigation.Location -> Maybe { title : String, subtitle : String }
+dict location =
+    case parseHash route location of
+        Just r ->
+            case r of
+                DefaultRoute ->
                     Nothing
+
+                ArtworkRoute str ->
+                    case str of
+                        "valley_cultura" ->
+                            heroTitle "Valley Cultura" "Artwork"
+
+                        _ ->
+                            heroTitle "" "Artwork"
+
+                DesignRoute ->
+                    heroTitle "Design" ""
+
+                HomeRoute ->
+                    Nothing
+
+                StudentWorkRoute str ->
+                    case str of
+                        "teaching_philosophy" ->
+                            heroTitle "Teaching Philosophy" "Student Work"
+
+                        _ ->
+                            heroTitle "" "Student Work"
+
+                NotFoundRoute ->
+                    Nothing
+
+        Nothing ->
+            Nothing
