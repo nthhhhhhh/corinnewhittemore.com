@@ -4,7 +4,6 @@ import Html exposing (Html, text, div, a)
 import Html.Attributes exposing (class, href)
 import Model exposing (Model, init)
 import Messages exposing (Msg(..))
-import PageContent exposing (pageContent)
 import Navigation
 import NavBar exposing (navBar)
 import Update exposing (update)
@@ -29,7 +28,7 @@ view model =
     div [ class "main-container" ]
         [ navBar model.isBurgerActive "./images/design/ecmw_black.png"
         , model.hero
-        , pageContent model
+        , model.content
         ]
 
 
