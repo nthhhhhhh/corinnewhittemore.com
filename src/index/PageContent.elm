@@ -1,72 +1,47 @@
-module PageContent exposing (html_, pageContent)
+module PageContent exposing (page)
 
 import ArtworkType exposing (ArtworkType(..))
 import CourseType exposing (CourseType(..))
 import Home exposing (content)
-import Html exposing (Html, div)
+import Html exposing (Html, div, text)
 import ImportantPapers exposing (content)
 import ItalyJournals exposing (content)
 import Messages exposing (Msg)
-import Model exposing (Model)
-import Nav exposing (fromUrlHash, RoutePath(..))
+import Navigation
+import Routing exposing (Route(..), route, parseLocation)
+import UrlParser exposing (parseHash)
 import PageType exposing (PageType(..))
 import PrivateDisturbance exposing (content)
 import ValleyCultura exposing (content)
 
 
-html_ : PageType -> Html Msg
-html_ pt =
-    case pt of
-        Artwork t ->
-            case t of
-                ImportantPapers ->
-                    ImportantPapers.content
-
-                ItalyJournals ->
-                    ItalyJournals.content
-
-                PrivateDisturbance ->
-                    PrivateDisturbance.content
-
-                ValleyCultura ->
-                    ValleyCultura.content
-
-        HomePage ->
+page : Navigation.Location -> Html Msg
+page location =
+    case parseLocation location of
+        DefaultRoute ->
             Home.content
 
-        Design ->
+        ArtworkRoute str ->
+            case str of
+                "valley_cultura" ->
+                    ValleyCultura.content
+
+                _ ->
+                    div [] []
+
+        DesignRoute ->
             div [] []
 
-        StudentWork t ->
-            case t of
-                Typography ->
+        HomeRoute ->
+            Home.content
+
+        StudentWorkRoute str ->
+            case str of
+                "teaching_philosophy" ->
                     div [] []
 
-                TeachingPhilosophy ->
+                _ ->
                     div [] []
 
-
-pageContent : Model -> Html Msg
-pageContent model =
-    let
-        routePath =
-            fromUrlHash model.currentRoute.hash
-    in
-        case routePath of
-            DefaultRoute ->
-                Home.content
-
-            ArtworkRoute ->
-                ValleyCultura.content
-
-            DesignRoute ->
-                div [] []
-
-            HomeRoute ->
-                Home.content
-
-            StudentWorkRoute ->
-                div [] []
-
-            NotFoundRoute ->
-                div [] []
+        NotFoundRoute ->
+            text "Not Found"
