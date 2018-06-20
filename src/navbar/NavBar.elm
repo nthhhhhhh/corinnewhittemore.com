@@ -1,7 +1,5 @@
 module NavBar exposing (navBar)
 
-import ArtworkType exposing (ArtworkType(..))
-import CourseType exposing (CourseType(..))
 import Html exposing (Attribute, Html, text, span, div, img, nav, li, ul, a)
 import Html.Attributes
     exposing
@@ -17,7 +15,6 @@ import Html.Attributes
 import Html.Events exposing (onClick)
 import ImageUtil exposing (ImagePath)
 import Messages exposing (Msg(..))
-import PageType exposing (PageType(..))
 
 
 styleFontSize : Attribute msg

@@ -1,7 +1,5 @@
 module PageContent exposing (page)
 
-import ArtworkType exposing (ArtworkType(..))
-import CourseType exposing (CourseType(..))
 import Home exposing (content)
 import Html exposing (Html, div, text)
 import ImportantPapers exposing (content)
@@ -10,7 +8,6 @@ import Messages exposing (Msg)
 import Navigation
 import Routing exposing (Route(..), route, parseLocation)
 import UrlParser exposing (parseHash)
-import PageType exposing (PageType(..))
 import PrivateDisturbance exposing (content)
 import ValleyCultura exposing (content)
 
