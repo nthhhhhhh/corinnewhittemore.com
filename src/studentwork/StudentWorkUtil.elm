@@ -1,4 +1,4 @@
-module StudentWorkUtil exposing (imageTiles, margins, underline, tabs)
+module StudentWorkUtil exposing (imageTiles, margins, underline, tabs, zoom)
 
 import Html exposing (Attribute, Html, figure, div, img, hr, a)
 import Html.Attributes exposing (class, style, alt, src)
@@ -85,6 +85,15 @@ tabs i =
 
 
 -- margins
+
+
+zoom : Attribute Msg
+zoom =
+    style
+        [ ( "zoom", "0.8" )
+        , ( "-moz-transform-origin", "top" )
+        , ( "-moz-transform", "scale(0.8)" )
+        ]
 
 
 margins : Attribute Msg
