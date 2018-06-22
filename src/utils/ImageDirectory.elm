@@ -163,5 +163,113 @@ designOneImages key =
                     (workingDir 3 "page16.jpg")
                     "is-square"
 
+            "4 1" ->
+                imageInfo
+                    "1"
+                    (workingDir 4 "project4_ex1.jpg")
+                    "is-800x604"
+
+            "4 2" ->
+                imageInfo
+                    "2"
+                    (workingDir 4 "project4_ex2.jpg")
+                    "is-800x604"
+
+            "4 3" ->
+                imageInfo
+                    "3"
+                    (workingDir 4 "project4_ex3.jpg")
+                    "is-542x677"
+
+            "4 5" ->
+                imageInfo
+                    "5"
+                    (workingDir 4 "project4_ex5.jpg")
+                    "is-542x677"
+
+            "5anxious" ->
+                imageInfo
+                    "anxious"
+                    (workingDir 5 "anxious.png")
+                    "is-710x668"
+
+            "5chaotic" ->
+                imageInfo
+                    "chaotic"
+                    (workingDir 5 "chaotic.png")
+                    "is-710x668"
+
+            "5curious" ->
+                imageInfo
+                    "curious"
+                    (workingDir 5 "curious.png")
+                    "is-710x668"
+
+            "5grouchy" ->
+                imageInfo
+                    "grouchy"
+                    (workingDir 5 "grouchy.png")
+                    "is-710x668"
+
+            "5jubilant" ->
+                imageInfo
+                    "jubilant"
+                    (workingDir 5 "jubilant.png")
+                    "is-710x668"
+
+            "5serene" ->
+                imageInfo
+                    "serene"
+                    (workingDir 5 "serene.png")
+                    "is-710x668"
+
+            "6 1" ->
+                imageInfo
+                    "1"
+                    (workingDir 6 "project5_ex1-678x720.jpg")
+                    "is-678x720"
+
+            "6 3" ->
+                imageInfo
+                    "3"
+                    (workingDir 6 "project5_ex3.jpg")
+                    "is-983x621"
+
+            "6 4" ->
+                imageInfo
+                    "4"
+                    (workingDir 6 "project5_ex4.jpg")
+                    "is-983x621"
+
+            "6 5" ->
+                imageInfo
+                    "5"
+                    (workingDir 6 "project5_ex5-680x720.jpg")
+                    "is-680x720"
+
+            "6 6" ->
+                imageInfo
+                    "6"
+                    (workingDir 6 "project5_ex6-687x720.jpg")
+                    "is-687x720"
+
+            "6 7" ->
+                imageInfo
+                    "7"
+                    (workingDir 6 "project5_ex7-625x720.jpg")
+                    "is-625x720"
+
+            "6 8" ->
+                imageInfo
+                    "8"
+                    (workingDir 6 "project5_ex8-627x720.jpg")
+                    "is-627x720"
+
+            "6 9" ->
+                imageInfo
+                    "9"
+                    (workingDir 6 "project5_ex9-647x720.jpg")
+                    "is-647x720"
+
             _ ->
                 notFoundResult
