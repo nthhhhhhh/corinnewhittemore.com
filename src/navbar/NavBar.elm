@@ -85,7 +85,7 @@ navBreadcrumb =
                 ]
             , li []
                 [ a
-                    [ href "#/studentwork/teaching_philosophy"
+                    [ href "#/studentwork/teaching_philosophy/1"
                     ]
                     [ text "Student Work" ]
                 ]
