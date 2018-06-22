@@ -1,4 +1,4 @@
-module StudentWorkUtil exposing (imageTiles, underline, tabs)
+module StudentWorkUtil exposing (imageTiles, margins, underline, tabs)
 
 import Html exposing (Attribute, Html, figure, div, img, hr, a)
 import Html.Attributes exposing (class, style, alt, src)
@@ -81,3 +81,16 @@ underline =
 tabs : Int -> Html Msg
 tabs i =
     Tabs.studentwork 6 i "#/studentwork/design_one"
+
+
+
+-- margins
+
+
+margins : Attribute Msg
+margins =
+    style
+        [ ( "margin-left", "15%" )
+        , ( "margin-right", "15%" )
+        , ( "margin-top", "1%" )
+        ]
