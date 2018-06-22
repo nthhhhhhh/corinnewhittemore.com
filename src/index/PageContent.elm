@@ -6,6 +6,10 @@ import ImportantPapers exposing (content)
 import ItalyJournals exposing (content)
 import DesignOne1 exposing (content)
 import DesignOne2 exposing (content)
+import DesignOne3 exposing (content)
+import DesignOne4 exposing (content)
+import DesignOne5 exposing (content)
+import DesignOne6 exposing (content)
 import Messages exposing (Msg)
 import Navigation
 import NotFound exposing (content)
@@ -57,8 +61,20 @@ page location =
                         2 ->
                             DesignOne2.content i
 
+                        3 ->
+                            DesignOne3.content i
+
+                        4 ->
+                            DesignOne4.content i
+
+                        5 ->
+                            DesignOne5.content i
+
+                        6 ->
+                            DesignOne6.content i
+
                         _ ->
-                            text "Design One"
+                            NotFound.content
 
                 "design_two" ->
                     case i of

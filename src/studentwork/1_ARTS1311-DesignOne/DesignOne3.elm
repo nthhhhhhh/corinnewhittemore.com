@@ -5,7 +5,14 @@ import Html exposing (Html, article, section, text, div, h2, p)
 import Html.Attributes exposing (class, style)
 import ImageDirectory exposing (designOneImages, paths, resolutions, titles)
 import Messages exposing (Msg)
-import StudentWorkUtil exposing (imageTiles, margins, tabs, underline)
+import StudentWorkUtil
+    exposing
+        ( imageTiles
+        , margins
+        , tabs
+        , underline
+        , zoom
+        )
 
 
 divTileDescription : Html Msg
@@ -13,8 +20,7 @@ divTileDescription =
     div [ class "tile is-parent is-6" ]
         [ article [ class "content" ]
             [ p [ class "title is-3 has-text-weight-bold" ] [ text "The Project" ]
-            , p [ class "is-6" ] [ text """Compose four 6x6 inch black and
-            white images using the initials of your name.""" ]
+            , p [ class "is-6" ] [ text """Point Line Plane Photo Isolation.""" ]
             ]
         ]
 
@@ -26,7 +32,7 @@ divTileDescription2 =
             [ h2 [ class "title is-3 has-text-weight-bold" ]
                 [ text "The Elements" ]
             , p [ class "is-6" ]
-                [ text """Plate 1: Asymmetrical with 5 values of grays (can include black and white). Plate 2: Symmetrical/Radial composition or Disrupted Symmetry. Plate 3: Asymmetrical with area of emphasis (contrast, isolation, placement). Plate 4: Crystallographic Balance (all over pattern)"""
+                [ text """6 x 6 in. black and white process book abstracting a gray-scale photograph through point, line and plane."""
                 ]
             ]
         ]
@@ -80,9 +86,8 @@ divTileIsAncestor =
 content : Int -> Html Msg
 content i =
     section
-        [ margins
-        ]
+        []
         [ tabs i
         , underline
-        , divTileIsAncestor
+        , section [ margins, zoom ] [ divTileIsAncestor ]
         ]

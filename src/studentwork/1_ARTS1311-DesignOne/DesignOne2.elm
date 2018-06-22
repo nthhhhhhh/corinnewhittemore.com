@@ -5,7 +5,14 @@ import Html exposing (Html, article, section, text, div, h2, p)
 import Html.Attributes exposing (class, style)
 import ImageDirectory exposing (designOneImages, paths, resolutions, titles)
 import Messages exposing (Msg)
-import StudentWorkUtil exposing (imageTiles, margins, tabs, underline)
+import StudentWorkUtil
+    exposing
+        ( imageTiles
+        , margins
+        , tabs
+        , underline
+        , zoom
+        )
 
 
 divTileDescription : Html Msg
@@ -80,13 +87,8 @@ divTileIsAncestor =
 content : Int -> Html Msg
 content i =
     section
-        [ style
-            [ ( "margin-left", "15%" )
-            , ( "margin-right", "15%" )
-            , ( "margin-top", "1%" )
-            ]
-        ]
+        []
         [ tabs i
         , underline
-        , divTileIsAncestor
+        , section [ margins, zoom ] [ divTileIsAncestor ]
         ]
