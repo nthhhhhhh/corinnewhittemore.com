@@ -32,13 +32,16 @@ dict location =
                 HomeRoute ->
                     Nothing
 
-                StudentWorkRoute str ->
+                StudentWorkRoute str _ ->
                     case str of
                         "teaching_philosophy" ->
                             heroTitle "Teaching Philosophy" "Student Work"
 
+                        "design_one" ->
+                            heroTitle "Design I" "Student Work"
+
                         _ ->
-                            heroTitle "" "Student Work"
+                            heroTitle "Student Work" ""
 
                 NotFoundRoute ->
                     Nothing
