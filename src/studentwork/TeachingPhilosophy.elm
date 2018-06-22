@@ -9,8 +9,9 @@ content =
     div []
         [ text "TeachingPhilosophy"
         , li []
-            [ a [ href "" ] [ text "Design 1" ]
-            , a [ href "#/studentwork/design_one/1" ]
+            [ a [ href "#/studentwork/design_one/1" ]
+                [ text "Design 1" ]
+            , a [ href "#/studentwork/digital_media/1" ]
                 [ text "Digital Media" ]
             , a [ href "" ] [ text "Typography" ]
             , a [ href "" ] [ text "Graphic Design 1" ]
