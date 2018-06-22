@@ -5,7 +5,7 @@ import Html exposing (Html, article, section, text, div, h2, p)
 import Html.Attributes exposing (class, style)
 import ImageDirectory exposing (designOneImages, paths, resolutions, titles)
 import Messages exposing (Msg)
-import StudentWorkUtil exposing (imageTiles, tabs, underline)
+import StudentWorkUtil exposing (imageTiles, margins, tabs, underline)
 
 
 divTileDescription : Html Msg
