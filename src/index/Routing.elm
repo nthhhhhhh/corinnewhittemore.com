@@ -1,16 +1,28 @@
 module Routing exposing (Route(..), route, parseLocation)
 
-import UrlParser exposing (Parser, (</>), parseHash, string, oneOf, top, s)
+import UrlParser exposing (Parser, (</>), parseHash, string, oneOf, int, top, s)
 import Maybe
 import Navigation
 
 
+type alias Course =
+    String
+
+
+type alias Project =
+    Int
+
+
+type alias ArtworkSeries =
+    String
+
+
 type Route
     = DefaultRoute
-    | ArtworkRoute String
+    | ArtworkRoute ArtworkSeries
     | DesignRoute
     | HomeRoute
-    | StudentWorkRoute String
+    | StudentWorkRoute Course Project
     | NotFoundRoute
 
 
@@ -21,7 +33,7 @@ route =
         , UrlParser.map ArtworkRoute (s "artwork" </> string)
         , UrlParser.map DesignRoute (s "design")
         , UrlParser.map HomeRoute (s "home")
-        , UrlParser.map StudentWorkRoute (s "studentwork" </> string)
+        , UrlParser.map StudentWorkRoute (s "studentwork" </> string </> int)
         , UrlParser.map NotFoundRoute (s "404")
         ]
 
