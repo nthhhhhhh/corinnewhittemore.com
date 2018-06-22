@@ -1,4 +1,4 @@
-module ImageDirectory exposing (designOneImages, paths, resolutions, titles)
+module ImageDirectory exposing (designOneImages, digitalMediaImages, paths, resolutions, titles)
 
 import HtmlUtils exposing (AltString)
 import ImageUtil exposing (ImagePath, BulmaDimension)
@@ -270,6 +270,74 @@ designOneImages key =
                     "9"
                     (workingDir 6 "project5_ex9-647x720.jpg")
                     "is-647x720"
+
+            _ ->
+                notFoundResult
+
+
+digitalMediaImages : ImageLookup
+digitalMediaImages key =
+    let
+        digitalMediaDir =
+            "/2_ARTS2348-DigitalMedia"
+
+        workingDir projectNum imagename =
+            studentWorkDir
+                ++ digitalMediaDir
+                ++ "/"
+                ++ "project_"
+                ++ fromInt projectNum
+                ++ "/"
+                ++ imagename
+    in
+        case key of
+            "1alyssa" ->
+                imageInfo
+                    "alyssa"
+                    (workingDir 1 "alyssa.gif")
+                    "is-square"
+
+            "1ever" ->
+                imageInfo
+                    "ever"
+                    (workingDir 1 "ever.gif")
+                    "is-square"
+
+            "1karely" ->
+                imageInfo
+                    "karely"
+                    (workingDir 1 "karely.gif")
+                    "is-square"
+
+            "1lauren" ->
+                imageInfo
+                    "lauren"
+                    (workingDir 1 "lauren.gif")
+                    "is-square"
+
+            "1lisa" ->
+                imageInfo
+                    "lisa"
+                    (workingDir 1 "lisa.gif")
+                    "is-square"
+
+            "1salma" ->
+                imageInfo
+                    "salma"
+                    (workingDir 1 "salma.gif")
+                    "is-square"
+
+            "1stephanie" ->
+                imageInfo
+                    "stephanie"
+                    (workingDir 1 "stephanie.gif")
+                    "is-square"
+
+            "1valerie" ->
+                imageInfo
+                    "valerie"
+                    (workingDir 1 "valerie.gif")
+                    "is-square"
 
             _ ->
                 notFoundResult

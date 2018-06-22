@@ -10,6 +10,7 @@ import DesignOne3 exposing (content)
 import DesignOne4 exposing (content)
 import DesignOne5 exposing (content)
 import DesignOne6 exposing (content)
+import DigitalMedia1 exposing (content)
 import Messages exposing (Msg)
 import Navigation
 import NotFound exposing (content)
@@ -83,8 +84,11 @@ page location =
 
                 "digital_media" ->
                     case i of
+                        1 ->
+                            DigitalMedia1.content i
+
                         _ ->
-                            text "Digital Media"
+                            NotFound.content
 
                 "independent_study" ->
                     case i of
