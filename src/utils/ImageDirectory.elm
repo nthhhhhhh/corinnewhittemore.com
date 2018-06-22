@@ -127,5 +127,41 @@ designOneImages key =
                     (workingDir 2 "lpm-2.png")
                     "is-square"
 
+            "3 1-1" ->
+                imageInfo
+                    "1-1"
+                    (workingDir 3 "page1-1.jpg")
+                    "is-square"
+
+            "3 4-4" ->
+                imageInfo
+                    "4-4"
+                    (workingDir 3 "page4-4.jpg")
+                    "is-square"
+
+            "3 6-1" ->
+                imageInfo
+                    "6-1"
+                    (workingDir 3 "page6-1.jpg")
+                    "is-square"
+
+            "3 12-3" ->
+                imageInfo
+                    "12-3"
+                    (workingDir 3 "page12-3.jpg")
+                    "is-square"
+
+            "3 14-3" ->
+                imageInfo
+                    "14-3"
+                    (workingDir 3 "page14-3.jpg")
+                    "is-square"
+
+            "3 16" ->
+                imageInfo
+                    "16"
+                    (workingDir 3 "page16.jpg")
+                    "is-square"
+
             _ ->
                 notFoundResult
