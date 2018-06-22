@@ -1,4 +1,4 @@
-module ImageUtil exposing (ImagePath, divTileImgGenerator)
+module ImageUtil exposing (..)
 
 import Html exposing (Html, figure, div, img, a)
 import Html.Attributes exposing (class, alt, src)
@@ -10,6 +10,10 @@ import Html.Events exposing (onClick)
 
 
 type alias ImagePath =
+    String
+
+
+type alias ImageTitle =
     String
 
 
