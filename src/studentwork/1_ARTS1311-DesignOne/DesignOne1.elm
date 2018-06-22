@@ -5,8 +5,7 @@ import Html exposing (Html, article, section, text, div, h2, p)
 import Html.Attributes exposing (class, style)
 import ImageDirectory exposing (designOneImages, paths, resolutions, titles)
 import Messages exposing (Msg)
-import StudentWorkUtil exposing (imageTiles, underline)
-import Tabs exposing (studentwork)
+import StudentWorkUtil exposing (imageTiles, tabs, underline)
 
 
 divTileDescription : Html Msg
@@ -91,7 +90,7 @@ content i =
             , ( "margin-top", "1%" )
             ]
         ]
-        [ Tabs.studentwork 6 i "#/studentwork/design_one"
+        [ tabs i
         , underline
         , divTileIsAncestor
         ]
