@@ -91,5 +91,41 @@ designOneImages key =
                     (workingDir 1 "js_squares.png")
                     "is-square"
 
+            "2ar" ->
+                imageInfo
+                    "ar"
+                    (workingDir 2 "ar-1.png")
+                    "is-square"
+
+            "2dlm" ->
+                imageInfo
+                    "dlm"
+                    (workingDir 2 "dlm-1.png")
+                    "is-square"
+
+            "2jar" ->
+                imageInfo
+                    "jar"
+                    (workingDir 2 "jar-1.png")
+                    "is-square"
+
+            "2jv" ->
+                imageInfo
+                    "jv"
+                    (workingDir 2 "jv-1.png")
+                    "is-square"
+
+            "2ks" ->
+                imageInfo
+                    "ks"
+                    (workingDir 2 "ks-2.png")
+                    "is-square"
+
+            "2lpm" ->
+                imageInfo
+                    "lpm"
+                    (workingDir 2 "lpm-2.png")
+                    "is-square"
+
             _ ->
                 notFoundResult
