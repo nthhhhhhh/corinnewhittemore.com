@@ -1,9 +1,10 @@
-module StudentWorkUtil exposing (imageTiles, underline)
+module StudentWorkUtil exposing (imageTiles, underline, tabs)
 
 import Html exposing (Attribute, Html, figure, div, img, hr, a)
 import Html.Attributes exposing (class, style, alt, src)
 import Html.Events exposing (onClick)
 import ImageUtil exposing (ImagePath, HtmlAlt, BulmaDimension)
+import Tabs exposing (studentwork)
 import Messages exposing (Msg(..))
 
 
@@ -75,3 +76,8 @@ attributeUnderline =
 underline : Html Msg
 underline =
     hr [ attributeUnselectable, attributeUnderline ] []
+
+
+tabs : Int -> Html Msg
+tabs i =
+    Tabs.studentwork 6 i "#/studentwork/design_one"
