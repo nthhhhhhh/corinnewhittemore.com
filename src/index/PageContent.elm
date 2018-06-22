@@ -5,6 +5,7 @@ import Html exposing (Html, div, text)
 import ImportantPapers exposing (content)
 import ItalyJournals exposing (content)
 import DesignOne1 exposing (content)
+import DesignOne2 exposing (content)
 import Messages exposing (Msg)
 import Navigation
 import NotFound exposing (content)
@@ -52,6 +53,9 @@ page location =
                     case i of
                         1 ->
                             DesignOne1.content i
+
+                        2 ->
+                            DesignOne2.content i
 
                         _ ->
                             text "Design One"
